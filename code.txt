@@ -1,0 +1,542 @@
+/// printf("\n\t Enter : ");
+       scanf("%d",&i);
+       if(i==1)
+       {
+             system("cls");
+             admin();
+       }
+       else if(i==2)
+       {
+             system("cls");
+              user();
+       }
+       else 
+       {
+             system("cls");
+             exit(0);
+       }  
+
+//// else if(a==2)
+      {
+           system("cls");
+      printf("\n");
+            printf("\n\t Proccessing...\n\t1. Back\n\t");
+            int r;
+            scanf("%d",&r);
+            if(r==1)
+            {
+                  system("cls");
+                  admin();
+            } 
+      }  
+
+/// choise = getche();
+     choise = toupper(choise);
+     switch(choise)
+      {
+            case '1':
+              admin();break;
+            case '2':
+               user();break;
+            case '3':
+            system("cls");
+               exit(0);break;
+      }
+
+// printf("\n\n\t1. Back\n\t2. Home\n\t");
+      printf("\n\t Enter : ");
+       scanf("%d",&i);
+       if(i==1)
+       {
+             system("cls");
+             admin();
+       }
+       else if(i==2)
+       {
+             system("cls");
+             show();
+              menu();
+       }
+
+// printf("\n\n\t1. Back\n\t2. Home\n\t");
+      printf("\n\t Enter : ");
+       scanf("%d",&i);
+       if(i==1)
+       {
+             system("cls");
+             user();
+       }
+       else if(i==2)
+       {
+             system("cls");
+              show();
+              menu();
+       }    
+
+// printf("\n\t Now you can Login...\n\t1.Login\n\t2.Back");
+      scanf("\n\t%d",&i);
+      if(i==1)
+      {
+            system("cls");
+            login();
+      }
+      else if(i==2)
+       {
+            system("cls");
+            admin();
+       }    
+             
+
+// FILE *f;
+     int i;
+     if((f = fopen("room.txt","r"))==NULL)
+     exit(0);
+     system("cls");
+     printf("\n\n\t >>>>> Detail <<<<<");
+     printf("\n\n\t Room: ");
+     printf("\n\t Name: ");
+     printf("\n\t Age: ");
+     printf("\n\t Phone number: ");
+     printf("\n\t period: ");
+     printf("\n\t Check in: ");
+     printf("\n\t Check Out: ");
+
+    
+       fprintf(f,"%s %s %s %s %s %s %s",s.roomnumber,s.name,s.age,s.phnum,s.period,s.in,s.out);
+     
+     fclose(f);
+
+// void cudtl()       
+{
+    char ch;
+    FILE *room;
+    room = fopen("room.txt","r");
+    if(room==NULL)
+    {
+printf("NO FILE FOUND");
+    }       
+       else
+       {
+while( !feof(room))
+{
+    ch=getc(room);
+    printf("%c",ch);
+}
+fclose(room);
+       }      
+}
+
+
+// scanf("%d",&a);
+      switch(a)
+      {
+            case 1:
+                system("cls");
+                room();
+            case 2:
+                 system("cls");
+                 room();
+            case 3:
+                 system("cls");
+                 room();
+            case 4:
+                 system("cls");
+                 room();
+      }
+
+// void a_login()              //************** admin Login ******************
+{
+        printf("\n\n\t >>>>>>>>>>>>> LOGIN <<<<<<<<<<<<<");
+     char name[20],c=' ';
+     char pass[30],ch;
+     int i=0;
+     printf("\n\n\t Enter User Name: ");
+     scanf("%s",&name[i]);
+     printf("\n\t Enter password: ");
+     while(i<30)
+     {
+           pass[i]=getch();
+           c=pass[i];
+           if(c==13)break;
+           else printf("*");
+           i++;
+     }
+     system("cls");
+     printf("\n\t Your Login Is successfull...");
+     a_dboard();
+}
+
+// void u_login()                         //************* User Login *************
+{
+     
+     printf("\n\n\t >>>>>>>>>>>>> LOGIN <<<<<<<<<<<<<");
+     char name[20],c=' ';
+     char pass[30],ch;
+     int i=0;
+     printf("\n\n\t Enter User Name: ");
+     scanf("%s",&name[i]);
+     printf("\n\t Enter password: ");
+     while(i<30)
+     {
+           pass[i]=getch();
+           c=pass[i];
+           if(c==13)break;
+           else printf("*");
+           i++;
+     }
+     system("cls");
+     printf("\n\t Your Login Is successfull...");
+     u_dboard();   
+}
+
+//   void reg1()                  //*************** admin registration ******************
+{
+      FILE *file;
+      file = fopen("reg1.txt","a+");
+      
+            char name[20];
+            char email[20];
+            char address[20];
+            char age[20];
+            char phnum[20];
+            char pass[30];
+            int i;
+      
+      printf("\n\n\t>>>>>>>>>>>>>>>>>>>>>>> Registration <<<<<<<<<<<<<<<<<<<<<");
+      printf("\n\n\t Enter name: ");
+      scanf("%s%s",&name,&name);
+      printf("\n\t Enter Address: ");
+      scanf("%s",&address);
+      printf("\n\t Enter Age: ");
+      scanf("%s",&age);
+      printf("\n\t Enter Email: ");
+      scanf("%d",&email);
+      scanf("%s",&phnum);
+      fprintf(file,"%s %s %s %s %s %s\t",name,address,age,email,phnum);
+      fclose(file);
+      reg();
+      system("cls");
+      db2();
+}
+
+
+//  
+struct web
+{
+      char name[30], pass[30];
+}w[99];
+
+void reg()
+  {
+    FILE *fp;
+    char c,checker[30]; int z=0;
+    int n,a;
+    fp=fopen("reg.txt","a+");
+    for(int i=0;i<100;i++)
+    {
+      printf("\n\t Enter UserName: ");
+      scanf("%s",checker);
+        while(!feof(fp))
+        {
+          fread(&w[i],sizeof(w[i]),1,fp);
+          if(strcmp(checker,w[i].name)==0)
+            {
+            printf("\n\n\tUSERNAME ALREDY EXISTS");           
+            reg();
+            }
+          else
+          {
+            strcpy(w[i].name,checker);
+            break;
+          }
+        }
+      printf("\n\t Enter Password: ");
+      while((c=getch())!=13)
+        {
+          w[i].pass[z++]=c;
+          printf("%c",'*');
+        }
+      fwrite(&w[i],sizeof(w[i]),1,fp);
+      fclose(fp);
+      printf("\n\n\tPress enter if you agree with Username and Password");
+      if((c=getch())==13)
+        {
+        
+        printf("\n\n\t\tYou are successfully registered");
+        printf("\n\n\t\tTry login your account??\n\n\t\t  ");
+        printf("> PRESS 1 FOR YES\n\n\t\t  > PRESS 2 FOR NO\n\n\t\t\t\t");
+        scanf("%d",&n);
+        switch(n)
+          {
+              case 1: system("cls");
+                    a_login();
+                    
+              case 2: 
+                    
+                    printf("\n\n\tTHANK YOU FOR REGISTERING");
+                    printf("\n\t1. Back to Admin");
+                    scanf("%d",&a);
+                    if(a==1)
+                    {
+                          system("cls");
+                          admin();
+                    }
+          }
+        }
+        break;
+      }
+    getch();
+  }
+
+void a_login()
+    {
+      FILE *fp;
+      char c,name[30],pass[30]; int z=0;
+      int checku,checkp,a;
+      fp=fopen("reg.txt","rb");
+      printf("\n\t>>>>>>>>>>> LogIn <<<<<<<<<<<<<<<");
+      for(int i=0;i<1000;i++)
+      {
+        printf("\n\n\t  ENTER USERNAME: ");
+        scanf("%s",name);
+        printf("\n\t  ENTER PASSWORD: ");
+        while((c=getch())!=13)
+        {
+          pass[z++]=c;
+          printf("%c",'*');
+        }
+        pass[z]='\0';
+      while(!feof(fp))
+        {
+        fread(&w[i],sizeof(w[i]),1,fp);
+          checku=strcmp(name,w[i].name);
+          checkp=strcmp(pass,w[i].pass);
+          if(checku==0&&checkp==0)
+          {
+            system("cls");
+            printf("\n\tYOU HAVE LOGGED IN SUCCESSFULLY!!");
+            a_dboard();
+          }
+        else if(checku==0&&checkp!=0)
+          {
+            printf("\n\n\n\t\t\tWRONG PASSWORD!! Not %s??",name);
+            printf("\n\n\t\t\t  (Press 'Y' to re-login)");
+            if(getch()=='y'||getch()=='Y')
+            system("cls");
+              a_login();
+          }
+        else if(checku!=0)
+          {
+            printf("\n\n\n\t\t\tYou are not a Registered User\n \t\t\t1. Register yourself\t2. Back\n\t");
+            scanf("%d",&a);
+            if(a==1)
+            {
+               system("cls");
+            reg1();
+            reg();
+            }
+            else if(a==2)
+            {
+                system("cls");
+                admin();
+            }           
+          }
+        }
+        break;
+      }
+      getch();
+    }
+
+//   void reg2()                     //************** user registration ****************
+{
+      FILE *file;
+      file = fopen("reg2.txt","a+");    
+           char name[20];
+            char email[20];
+            char address[20];
+            char age[20];
+            char phnum[20];          
+       int i;
+       printf("\n\n\t>>>>>>>>>>>>>> Registration <<<<<<<<<<<<<");
+      printf("\n\n\t Enter your name: ");
+      scanf("%s%s",&name,&name);
+      printf("\n\t Enter age: ");
+      scanf("%s",&age);
+      printf("\n\t Enter Address: ");
+      scanf("%s",&address);
+      printf("\n\t Enter Email: ");
+      scanf("%s",&email);     
+      fprintf(file,"%s %s %s %s %s %s\t",name,age,address,email,phnum);
+      fclose(file);
+      u_reg();
+       system("cls");
+       db();
+}
+
+void u_reg()
+  {
+    FILE *fp;
+    char c,checker[30]; int z=0;
+    int n,a;
+    fp=fopen("u_reg.txt","ab+");
+    for(int i=0;i<100;i++)
+    {
+      printf("\n\t Enter UserName: ");
+      scanf("%s",checker);
+        while(!feof(fp))
+        {
+          fread(&w[i],sizeof(w[i]),1,fp);
+          if(strcmp(checker,w[i].name)==0)
+            {
+            printf("\n\n\tUSERNAME ALREDY EXISTS");           
+            reg();
+            }
+          else
+          {
+            strcpy(w[i].name,checker);
+            break;
+          }
+        }
+      printf("\n\t Enter Password: ");
+      while((c=getch())!=13)
+        {
+          w[i].pass[z++]=c;
+          printf("%c",'*');
+        }
+      fwrite(&w[i],sizeof(w[i]),1,fp);
+      fclose(fp);
+      printf("\n\n\tPress enter if you agree with Username and Password");
+      if((c=getch())==13)
+        {
+        
+        printf("\n\n\t\tYou are successfully registered");
+        printf("\n\n\t\tTry login your account??\n\n\t\t  ");
+        printf("> PRESS 1 FOR YES\n\n\t\t  > PRESS 2 FOR NO\n\n\t\t\t\t");
+        scanf("%d",&n);
+        switch(n)
+          {
+              case 1: system("cls");
+                    u_login();                  
+              case 2:                     
+                    printf("\n\n\tTHANK YOU FOR REGISTERING");
+                    printf("\n\t1. Back to User");
+                    scanf("%d",&a);
+                    if(a==1)
+                    {
+                          system("cls");
+                          user();
+                    }
+          }
+        }
+        break;
+      }
+    getch();
+  }
+
+void u_login()              // ************ user login &&&&&&&&&&&
+    {
+      FILE *fp;
+      char c,name[30],pass[30]; int z=0;
+      int checku,checkp,a;
+      fp=fopen("u_reg.txt","rb");
+      printf("\n\t>>>>>>>>>>> LogIn <<<<<<<<<<<<<<<");
+      for(int i=0;i<1000;i++)
+      {
+        printf("\n\n\t  ENTER USERNAME: ");
+        scanf("%s",name);
+        printf("\n\t  ENTER PASSWORD: ");
+        while((c=getch())!=13)
+        {
+          pass[z++]=c;
+          printf("%c",'*');
+        }
+        pass[z]='\0';
+      while(!feof(fp))
+        {
+        fread(&w[i],sizeof(w[i]),1,fp);
+          checku=strcmp(name,w[i].name);
+          checkp=strcmp(pass,w[i].pass);
+          if(checku==0&&checkp==0)
+          {
+            system("cls");
+            printf("\n\tYOU HAVE LOGGED IN SUCCESSFULLY!!");
+            u_dboard();
+          }
+        else if(checku==0&&checkp!=0)
+          {
+            printf("\n\n\n\t\t\tWRONG PASSWORD!! Not %s??",name);
+            printf("\n\n\t\t\t\t  (Press 'Y' to re-login)");
+            if(getch()=='y'||getch()=='Y')
+              u_login();
+          }
+        else if(checku!=0)
+          {
+            printf("\n\n\n\t\t\tYou are not a Registered User\n \t\t\t1. Register yourself\t2. Back\n\t");
+            scanf("%d",&a);
+            if(a==1)
+            {
+               system("cls");
+            reg2();
+            u_reg();
+            }
+            else if(a==2)
+            {
+                system("cls");
+                user();
+            }               
+          }
+        }
+        break;
+      }
+      getch();
+    }
+
+
+void db2()          // **********************************
+{
+      system("cls");
+      printf("\n\n\t ***************************************************");
+      printf("\n\t >>>>>>>>> Your registration is completed <<<<<<<<<<");
+      printf("\n\t ***************************************************");
+      int a;
+      printf("\n\n\t 1.Login\n\t 2.Main Menu\n\t");
+      scanf("%d",&a);
+      if(a==1)
+      {
+            system("cls");
+            a_login();
+      }
+      else if(a==2)
+      {
+            system("cls");
+            show();
+            menu();
+      }
+}
+
+void db()                          //************* db *************
+{
+      system("cls");
+      printf("\n\n\t ***************************************************");
+      printf("\n\t >>>>>>>>> Your registration is completed <<<<<<<<<<");
+      printf("\n\t ***************************************************");
+      int a;
+      printf("\n\n\t 1.Login\n\t 2.Main Menu\n\t");
+      scanf("%d",&a);
+      if(a==1)
+      {
+            system("cls");
+            u_login();
+      }
+      else if(a==2)
+      {
+            system("cls");
+            show();
+            menu();
+      }
+}
+
+
+printf("\n\t ---------------------------------------------------");
+      printf("\n\t  Current date and time : %s",ctime(&t));               // time option
+      printf("\t ---------------------------------------------------");
